@@ -5,11 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cricket Score Predictor</title>
     <link rel="manifest" href="{{ url_for('static', filename='manifest.json') }}">
-
     <meta name="theme-color" content="#0d47a1">
-    <link rel="icon" href="static/icons/10cd9521-c350-429a-bd10-d0e2af47d3ae.png">
-
+    <link rel="icon" href="{{ url_for('static', filename='icons/10cd9521-c350-429a-bd10-d0e2af47d3ae.png') }}">
     <style>
+        * {
+            box-sizing: border-box;
+        }
+
         body {
             font-family: Arial, sans-serif;
             background-image: url('https://as1.ftcdn.net/jpg/01/97/33/46/1000_F_197334647_aClfAIrrc0RPrsC8V52RN4MkzNmQCysc.jpg');
@@ -18,59 +20,64 @@
             background-position: center;
             margin: 0;
             padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
         }
-        
+
         .container {
-            max-width: 600px;
-            margin: 20px auto;
-            padding: 30px;
-            background-color: rgba(209, 44, 44, 0.85); 
-            border-radius: 30px;
-            box-shadow: 0 0 20px rgba(0,0,0,0.5);
-            text-align: center; 
-            box-shadow: red 0px 0px 40px;
-        }
-        
-        h1 {
+            width: 90%;
+            max-width: 500px;
+            padding: 5vw;
+            background-color: rgba(209, 44, 44, 0.85);
+            border-radius: 20px;
             text-align: center;
+            box-shadow: 0 0 20px rgba(0,0,0,0.5);
+        }
+
+        h1 {
             color: #fff;
             font-weight: bold;
             text-shadow: 2px 2px 4px #000;
+            font-size: 6vw;
+            margin-bottom: 5vh;
         }
-        
+
         form {
-            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
         }
-        
+
         label {
-            display: block;
-            margin-bottom: 6px;
             font-weight: bold;
-            font-size: 18px;
-            color: #222;
+            font-size: 1rem;
+            margin-bottom: 0.5em;
+            color: #fff;
+            text-align: left;
         }
-        
+
         select, input[type="number"] {
-            width: calc(100% - 22px); 
+            width: 100%;
             padding: 10px;
-            margin-bottom: 20px;
+            margin-bottom: 1.5em;
             border: 1px solid #410cf0;
             border-radius: 10px;
-            font-size: 16px;
+            font-size: 1rem;
         }
 
         button[type="submit"] {
-            width: 60%;
+            width: 100%;
             padding: 12px;
             background-color: #4d62d3;
             color: #141313;
-            font-size: large;
+            font-size: 1.1rem;
             font-weight: bold;
             border-radius: 30px;
             cursor: pointer;
             transition: 0.3s;
         }
-        
+
         button[type="submit"]:hover {
             background-color: #d23111;
             color: #fff;
@@ -78,20 +85,31 @@
 
         .result {
             margin-top: 20px;
-            font-size: 22px;
+            font-size: 1.2rem;
             font-weight: bold;
             color: #fff;
             text-shadow: 2px 2px 4px #000;
+        }
+
+        @media (min-width: 768px) {
+            h1 {
+                font-size: 36px;
+            }
+            select, input[type="number"] {
+                font-size: 1rem;
+                padding: 12px;
+            }
+            button[type="submit"] {
+                font-size: 1rem;
+                padding: 12px 20px;
+            }
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <h1>🏏 Cricket Score Predictor</h1>
-    </header>
-
     <div class="container">
+        <h1>🏏 Cricket Score Predictor</h1>
         <form action="/predict" method="post">
             <label for="batting_team">Select Batting Team:</label>
             <select name="batting_team" required>
@@ -145,16 +163,18 @@
             <button type="submit">Predict</button>
         </form>
 
+        <div class="result">
+            <!-- Prediction result will appear here -->
+        </div>
     </div>
-    <script>
-  
-  if ("serviceWorker" in navigator) {
-    navigator.serviceWorker.register("/static/service-worker.js")
-      .then(reg => console.log("Service Worker registered:", reg))
-      .catch(err => console.error("Service Worker failed:", err));
-  }
-</script>
 
+    <script>
+        if ("serviceWorker" in navigator) {
+            navigator.serviceWorker.register("/static/service-worker.js")
+                .then(reg => console.log("Service Worker registered:", reg))
+                .catch(err => console.error("Service Worker failed:", err));
+        }
+    </script>
 
 </body>
 </html>

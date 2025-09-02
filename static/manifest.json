@@ -1,0 +1,25 @@
+{
+  "id": "/cricket-app",
+  "name": "Cricket Score Prediction",
+  "short_name": "CricketApp",
+  "description": "AI-powered cricket score predictor with real-time insights.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#ffffff",
+  "theme_color": "#4caf50",
+  "icons": [
+    {
+      "src": "/static/icons/10cd9521-c350-429a-bd10-d0e2af47d3ae.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/static/icons/WhatsApp Ima2.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

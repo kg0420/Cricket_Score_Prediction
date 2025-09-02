@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('https://as1.ftcdn.net/jpg/01/97/33/46/1000_F_197334647_aClfAIrrc0RPrsC8V52RN4MkzNmQCysc.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            margin: 0;
+            padding: 0;
+            justify-content: center;
+            align-items: center;
+        }
+        a {
+            margin-left:600px;
+            margin-top: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            width: 200px;
+            color: white;
+            background-color: #4d62d3;
+            padding: 15px 25px;
+            border-radius: 10px;
+            font-size: 20px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.5);
+            transition: 0.3s;
+        }
+        a:hover {
+            background-color: #3549a5;
+            transform: scale(1.05);
+        }
+        h1 {
+            margin-top: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: red;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px #000;
+        }
+        footer{
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 350px;
+            color: red;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px #000;
+            background-color: #000;
+
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to Home Page</h1>
+    <a href="{{ url_for('home') }}">Go to Predictor</a>
+    
+</body>
+<footer>@ Developer Krish Gupta</footer>
+</html>

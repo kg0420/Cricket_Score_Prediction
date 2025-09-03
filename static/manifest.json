@@ -1,7 +1,7 @@
 {
   "id": "/cricket-app",
   "name": "Cricket Score Prediction",
-  "short_name": "CricketApp",
+  "short_name": "ScorePredictor",
   "description": "AI-powered cricket score predictor with real-time insights.",
   "start_url": "/",
   "scope": "/",
@@ -23,3 +23,4 @@
     }
   ]
 }
+

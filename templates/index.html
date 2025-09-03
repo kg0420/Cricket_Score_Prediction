@@ -33,14 +33,14 @@
             background-color: rgba(209, 44, 44, 0.85);
             border-radius: 20px;
             text-align: center;
-            box-shadow: 0 0 20px rgba(0,0,0,0.5);
+            box-shadow: 0 0 55px red;
         }
 
         h1 {
             color: #fff;
             font-weight: bold;
             text-shadow: 2px 2px 4px #000;
-            font-size: 6vw;
+            font-size: 3vw;
             margin-bottom: 5vh;
         }
 
@@ -146,19 +146,19 @@
             </select>
 
             <label for="over_number">Over Number:</label>
-            <input type="number" id="over_number" name="over_number" required>
+            <input type="number" id="over_number" name="over_number" max="50" min="5" placeholder="min:-5, max:-50" required>
 
             <label for="runs">Runs Scored Till That Over:</label>
-            <input type="number" id="runs" name="runs" required>
+            <input type="number" id="runs" name="runs" min="0" required>
 
             <label for="wickets">Wickets Taken Till That Over:</label>
-            <input type="number" id="wickets" name="wickets" required>
+            <input type="number" id="wickets" name="wickets" max="10" min="0" placeholder="max:-10" required>
 
             <label for="runsLast5overs">Runs in Last 5 Overs:</label>
-            <input type="number" id="runsLast5overs" name="runsLast5overs" required>
+            <input type="number" id="runsLast5overs" name="runsLast5overs" placeholder="less than runs scored till that over " required>
 
             <label for="wicketsLast5overs">Wickets in Last 5 Overs:</label>
-            <input type="number" id="wicketsLast5overs" name="wicketsLast5overs" required>
+            <input type="number" id="wicketsLast5overs" name="wicketsLast5overs" placeholder="Less than wickets till that over" required>
 
             <button type="submit">Predict</button>
         </form>

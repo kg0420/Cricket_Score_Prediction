@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request,flash
 import joblib
 import numpy as np
 import pandas as pd
@@ -30,6 +30,18 @@ def predict():
         runsLast5overs = float(request.form['runsLast5overs'])
         wicketsLast5overs = float(request.form['wicketsLast5overs'])
 
+        # if not (5 <= over_number <= 50):
+        #     return "Over number must be between 5 and 50", 400
+        # if not (0 <= wickets < 10):
+        #     return "Wickets must be less than 10", 400
+
+        # # Dynamic relationship checks
+        if batting_team==bowling_team:
+            return render_template("result.html", prediction_text="⚠️ Batting and Bowling teams must be different.")
+        if runsLast5overs >= runs:
+            return render_template("result.html", prediction_text="⚠️ you had entered more runs in last 5 overs than total runs. please enter valid inputs.")
+        if wicketsLast5overs >= wickets:
+            return render_template("result.html", prediction_text="⚠️ you had entered more wickets in last 5 overs than total wickets. please enter valid inputs.")
         # Encode categorical inputs
         batting_team_encoded = encoders['Batting Team'].transform([batting_team])[0]
         bowling_team_encoded = encoders['Bowling Team'].transform([bowling_team])[0]
@@ -48,8 +60,8 @@ def predict():
 
         return render_template("result.html", prediction_text=f"Predicted Total Score: {round(prediction)}")
 
-    except Exception as e:
-        return render_template("result.html", prediction_text=f"⚠️ Error: {str(e)}")
+    except ValueError:
+        return render_template("result.html", prediction_text=f"⚠️ Please enter valid numeric values.")
 
 
 if __name__ == "__main__":

@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cricket Score Predictor</title>
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#0d47a1">
+    <link rel="icon" href="static/icons/10cd9521-c350-429a-bd10-d0e2af47d3ae.png">
+
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -141,5 +145,15 @@
         </form>
 
     </div>
+    <script>
+  
+  if ("serviceWorker" in navigator) {
+    navigator.serviceWorker.register("/static/service-worker.js")
+      .then(reg => console.log("Service Worker registered:", reg))
+      .catch(err => console.error("Service Worker failed:", err));
+  }
+</script>
+
+
 </body>
 </html>

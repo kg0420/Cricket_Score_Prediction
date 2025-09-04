@@ -38,9 +38,9 @@ def predict():
         # # Dynamic relationship checks
         if batting_team==bowling_team:
             return render_template("result.html", prediction_text="⚠️ Batting and Bowling teams must be different.")
-        if runsLast5overs >= runs:
+        if runsLast5overs > runs:
             return render_template("result.html", prediction_text="⚠️ you had entered more runs in last 5 overs than total runs. please enter valid inputs.")
-        if wicketsLast5overs >= wickets:
+        if wicketsLast5overs > wickets:
             return render_template("result.html", prediction_text="⚠️ you had entered more wickets in last 5 overs than total wickets. please enter valid inputs.")
         # Encode categorical inputs
         batting_team_encoded = encoders['Batting Team'].transform([batting_team])[0]

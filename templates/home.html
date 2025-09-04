@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
-    <link rel="manifest" href="manifest.json">
+    <link rel="manifest" href="{{ url_for('static', filename='manifest.json') }}">
+
     <meta name="theme-color" content="#0d47a1">
     <link rel="icon" href="static/icons/10cd9521-c350-429a-bd10-d0e2af47d3ae.png">
 
@@ -64,7 +65,7 @@
     </style>
 </head>
 <body>
-    <h1>Welcome to Home Page</h1>
+    <h1>Welcom to Score Prediction Dashboard of ODI Cricket</h1>
     <a href="{{ url_for('home') }}">Go to Predictor</a>
     <script>
   if ("serviceWorker" in navigator) {

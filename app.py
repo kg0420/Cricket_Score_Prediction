@@ -4,7 +4,7 @@ import numpy as np
 import pandas as pd
 
 # Load trained model and encoders
-model = joblib.load("score_model.pkl")
+model = joblib.load("cricket_score_model.pkl")
 model_features = joblib.load("model_features.pkl")
 encoders = joblib.load("Labelencoder.pkl")
 

@@ -4,8 +4,8 @@ import numpy as np
 import pandas as pd
 
 # Load trained model and encoders
-model = joblib.load("cricket_score_model.pkl")
-model_features = joblib.load("model_features.pkl")
+model = joblib.load("cricket_score_model.pkl",mmap_mode='r')
+model_features = joblib.load("model_features.pkl",mmap_mode='r')
 encoders = joblib.load("Labelencoder.pkl")
 
 app = Flask(__name__)

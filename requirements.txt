@@ -4,4 +4,4 @@ pandas
 gunicorn
 joblib
 scikit-learn
- 
+xgboost
